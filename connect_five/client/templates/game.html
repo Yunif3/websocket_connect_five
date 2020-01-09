@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }}</title>
+    <script src="{% static 'js/p5.js' %}"></script>
+</head>
+<body>
+    <script>
+        let room = "{{ name }}";
+        let ws = new WebSocket('ws://' + window.location.host + '/ws/game/' + room + '/');
+        let player = "{{ player }}";
+        let player_count = "{{ total }}";
+        let pk = "{{ id }}"
+    </script>
+    <script src="{% static 'js/game.js' %}"></script>
+    <h1 id="result">{{ name }}</h1>
+    <h1>Welcome player {{ player }}</h1>
+    <h1 id="display_player_count"></h1>
+</body>
+</html>
